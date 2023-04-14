@@ -21,6 +21,10 @@ class Organization extends Model
         return $this->hasMany(Contact::class);
     }
 
+    public function store() {
+        return $this->belongsTo(Store::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {

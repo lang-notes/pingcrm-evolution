@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Account;
 use App\Models\Contact;
 use App\Models\Organization;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -38,5 +39,8 @@ class DatabaseSeeder extends Seeder
             ->each(function ($contact) use ($organizations) {
                 $contact->update(['organization_id' => $organizations->random()->id]);
             });
+
+        Product::factory(100)
+            ->create(['account_id' => $account->id]);
     }
 }

@@ -32,7 +32,7 @@
             </Link>
           </td>
           <td class="border-t">
-            <Link class="flex items-center px-6 py-4" :href="`/contacts/${contact.id}/edit`" tabindex="-1">
+            <Link class="flex items-center px-6 py-4" :href="`/contacts/${contact.id}/create`" tabindex="-1">
               <div v-if="contact.organization">
                 {{ contact.organization.name }}
               </div>
