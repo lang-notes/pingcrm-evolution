@@ -143,5 +143,29 @@ Route::get('/img/{path}', [ImagesController::class, 'show'])
     ->name('image');
 
 Route::get('/products', [ProductsController::class, 'index'])
-    ->name('products.index')
+    ->name('products')
+    ->middleware('auth');
+
+Route::get('/products/create', [ProductsController::class, 'create'])
+    ->name('products.create')
+    ->middleware('auth');
+
+Route::post('/products', [ProductsController::class, 'store'])
+    ->name('products.store')
+    ->middleware('auth');
+
+Route::get('/products/{product}/edit', [ProductsController::class, 'edit'])
+    ->name('products.edit')
+    ->middleware('auth');
+
+Route::put('/products/{product}', [ProductsController::class, 'update'])
+    ->name('products.update')
+    ->middleware('auth');
+
+Route::delete('/products/{product}', [ProductsController::class, 'destroy'])
+    ->name('products.destroy')
+    ->middleware('auth');
+
+Route::put('/products/{product}/restore', [ProductsController::class, 'restore'])
+    ->name('products.restore')
     ->middleware('auth');
